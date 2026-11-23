@@ -1,0 +1,704 @@
+{
+ "items": [
+  {
+   "obj": "OP_1_Chair",
+   "asset": "OfficeChair"
+  },
+  {
+   "obj": "OP_1_Desk",
+   "asset": "OpDesk"
+  },
+  {
+   "obj": "OP_1_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "OP_1_MonitorArm",
+   "asset": "MonitorArm3"
+  },
+  {
+   "obj": "OP_1_Monitor_C",
+   "asset": "Monitor27_Head"
+  },
+  {
+   "obj": "OP_1_Monitor_C_Screen",
+   "asset": "Mon27_Screen_Over"
+  },
+  {
+   "obj": "OP_1_Monitor_L",
+   "asset": "Monitor27_Head"
+  },
+  {
+   "obj": "OP_1_Monitor_L_Screen",
+   "asset": "Mon27_Screen_Proc"
+  },
+  {
+   "obj": "OP_1_Monitor_R",
+   "asset": "Monitor27_Head"
+  },
+  {
+   "obj": "OP_1_Monitor_R_Screen",
+   "asset": "Mon27_Screen_Alarm"
+  },
+  {
+   "obj": "OP_1_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "OP_2_Chair",
+   "asset": "OfficeChair"
+  },
+  {
+   "obj": "OP_2_Desk",
+   "asset": "OpDesk"
+  },
+  {
+   "obj": "OP_2_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "OP_2_MonitorArm",
+   "asset": "MonitorArm3"
+  },
+  {
+   "obj": "OP_2_Monitor_C",
+   "asset": "Monitor27_Head"
+  },
+  {
+   "obj": "OP_2_Monitor_C_Screen",
+   "asset": "Mon27_Screen_Over"
+  },
+  {
+   "obj": "OP_2_Monitor_L",
+   "asset": "Monitor27_Head"
+  },
+  {
+   "obj": "OP_2_Monitor_L_Screen",
+   "asset": "Mon27_Screen_Proc"
+  },
+  {
+   "obj": "OP_2_Monitor_R",
+   "asset": "Monitor27_Head"
+  },
+  {
+   "obj": "OP_2_Monitor_R_Screen",
+   "asset": "Mon27_Screen_Alarm"
+  },
+  {
+   "obj": "OP_2_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "OP_3_Chair",
+   "asset": "OfficeChair"
+  },
+  {
+   "obj": "OP_3_Desk",
+   "asset": "OpDesk"
+  },
+  {
+   "obj": "OP_3_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "OP_3_MonitorArm",
+   "asset": "MonitorArm3"
+  },
+  {
+   "obj": "OP_3_Monitor_C",
+   "asset": "Monitor27_Head"
+  },
+  {
+   "obj": "OP_3_Monitor_C_Screen",
+   "asset": "Mon27_Screen_Over"
+  },
+  {
+   "obj": "OP_3_Monitor_L",
+   "asset": "Monitor27_Head"
+  },
+  {
+   "obj": "OP_3_Monitor_L_Screen",
+   "asset": "Mon27_Screen_Proc"
+  },
+  {
+   "obj": "OP_3_Monitor_R",
+   "asset": "Monitor27_Head"
+  },
+  {
+   "obj": "OP_3_Monitor_R_Screen",
+   "asset": "Mon27_Screen_Alarm"
+  },
+  {
+   "obj": "OP_3_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "OP_CENTER_Chair",
+   "asset": "OfficeChair"
+  },
+  {
+   "obj": "OP_CENTER_Desk",
+   "asset": "OpDesk"
+  },
+  {
+   "obj": "OP_CENTER_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "OP_CENTER_MonitorArm",
+   "asset": "MonitorArm3"
+  },
+  {
+   "obj": "OP_CENTER_Monitor_C",
+   "asset": "Monitor27_Head"
+  },
+  {
+   "obj": "OP_CENTER_Monitor_C_Screen",
+   "asset": "Mon27_Screen_Over"
+  },
+  {
+   "obj": "OP_CENTER_Monitor_L",
+   "asset": "Monitor27_Head"
+  },
+  {
+   "obj": "OP_CENTER_Monitor_L_Screen",
+   "asset": "Mon27_Screen_Proc"
+  },
+  {
+   "obj": "OP_CENTER_Monitor_R",
+   "asset": "Monitor27_Head"
+  },
+  {
+   "obj": "OP_CENTER_Monitor_R_Screen",
+   "asset": "Mon27_Screen_Alarm"
+  },
+  {
+   "obj": "OP_CENTER_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_01_Desk",
+   "asset": "StationDesk_Lo"
+  },
+  {
+   "obj": "ST_01_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_01_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_01_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_01_TV_Lower",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_01_TV_Lower_Feet",
+   "asset": "TVFeet_Lo"
+  },
+  {
+   "obj": "ST_01_TV_Lower_Screen",
+   "asset": "TV65_Screen_Lower"
+  },
+  {
+   "obj": "ST_01_TV_Stand",
+   "asset": "TVStand"
+  },
+  {
+   "obj": "ST_01_TV_Upper",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_01_TV_Upper_Screen",
+   "asset": "TV65_Screen_Upper"
+  },
+  {
+   "obj": "ST_02_Desk",
+   "asset": "StationDesk_Hi"
+  },
+  {
+   "obj": "ST_02_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_02_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_02_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_02_TV_Lower",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_02_TV_Lower_Feet",
+   "asset": "TVFeet_Hi"
+  },
+  {
+   "obj": "ST_02_TV_Lower_Screen",
+   "asset": "TV65_Screen_Lower"
+  },
+  {
+   "obj": "ST_02_TV_Stand",
+   "asset": "TVStand"
+  },
+  {
+   "obj": "ST_02_TV_Upper",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_02_TV_Upper_Screen",
+   "asset": "TV65_Screen_Upper"
+  },
+  {
+   "obj": "ST_03_Desk",
+   "asset": "StationDesk_Lo"
+  },
+  {
+   "obj": "ST_03_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_03_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_03_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_03_TV_Lower",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_03_TV_Lower_Feet",
+   "asset": "TVFeet_Lo"
+  },
+  {
+   "obj": "ST_03_TV_Lower_Screen",
+   "asset": "TV65_Screen_Lower"
+  },
+  {
+   "obj": "ST_03_TV_Stand",
+   "asset": "TVStand"
+  },
+  {
+   "obj": "ST_03_TV_Upper",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_03_TV_Upper_Screen",
+   "asset": "TV65_Screen_Upper"
+  },
+  {
+   "obj": "ST_04_Desk",
+   "asset": "StationDesk_Hi"
+  },
+  {
+   "obj": "ST_04_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_04_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_04_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_04_TV_Lower",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_04_TV_Lower_Feet",
+   "asset": "TVFeet_Hi"
+  },
+  {
+   "obj": "ST_04_TV_Lower_Screen",
+   "asset": "TV65_Screen_Lower"
+  },
+  {
+   "obj": "ST_04_TV_Stand",
+   "asset": "TVStand"
+  },
+  {
+   "obj": "ST_04_TV_Upper",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_04_TV_Upper_Screen",
+   "asset": "TV65_Screen_Upper"
+  },
+  {
+   "obj": "ST_05_Desk",
+   "asset": "StationDesk_Lo"
+  },
+  {
+   "obj": "ST_05_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_05_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_05_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_05_TV_Lower",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_05_TV_Lower_Feet",
+   "asset": "TVFeet_Lo"
+  },
+  {
+   "obj": "ST_05_TV_Lower_Screen",
+   "asset": "TV65_Screen_Lower"
+  },
+  {
+   "obj": "ST_05_TV_Stand",
+   "asset": "TVStand"
+  },
+  {
+   "obj": "ST_05_TV_Upper",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_05_TV_Upper_Screen",
+   "asset": "TV65_Screen_Upper"
+  },
+  {
+   "obj": "ST_06_Desk",
+   "asset": "StationDesk_Hi"
+  },
+  {
+   "obj": "ST_06_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_06_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_06_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_06_TV_Lower",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_06_TV_Lower_Feet",
+   "asset": "TVFeet_Hi"
+  },
+  {
+   "obj": "ST_06_TV_Lower_Screen",
+   "asset": "TV65_Screen_Lower"
+  },
+  {
+   "obj": "ST_06_TV_Stand",
+   "asset": "TVStand"
+  },
+  {
+   "obj": "ST_06_TV_Upper",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_06_TV_Upper_Screen",
+   "asset": "TV65_Screen_Upper"
+  },
+  {
+   "obj": "ST_07_Desk",
+   "asset": "StationDesk_Hi"
+  },
+  {
+   "obj": "ST_07_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_07_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_07_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_07_TV_Lower",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_07_TV_Lower_Feet",
+   "asset": "TVFeet_Hi"
+  },
+  {
+   "obj": "ST_07_TV_Lower_Screen",
+   "asset": "TV65_Screen_Lower"
+  },
+  {
+   "obj": "ST_07_TV_Stand",
+   "asset": "TVStand"
+  },
+  {
+   "obj": "ST_07_TV_Upper",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_07_TV_Upper_Screen",
+   "asset": "TV65_Screen_Upper"
+  },
+  {
+   "obj": "ST_08_Desk",
+   "asset": "StationDesk_Lo"
+  },
+  {
+   "obj": "ST_08_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_08_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_08_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_08_TV_Lower",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_08_TV_Lower_Feet",
+   "asset": "TVFeet_Lo"
+  },
+  {
+   "obj": "ST_08_TV_Lower_Screen",
+   "asset": "TV65_Screen_Lower"
+  },
+  {
+   "obj": "ST_08_TV_Stand",
+   "asset": "TVStand"
+  },
+  {
+   "obj": "ST_08_TV_Upper",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_08_TV_Upper_Screen",
+   "asset": "TV65_Screen_Upper"
+  },
+  {
+   "obj": "ST_09_Desk",
+   "asset": "StationDesk_Hi"
+  },
+  {
+   "obj": "ST_09_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_09_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_09_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_09_TV_Lower",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_09_TV_Lower_Feet",
+   "asset": "TVFeet_Hi"
+  },
+  {
+   "obj": "ST_09_TV_Lower_Screen",
+   "asset": "TV65_Screen_Lower"
+  },
+  {
+   "obj": "ST_09_TV_Stand",
+   "asset": "TVStand"
+  },
+  {
+   "obj": "ST_09_TV_Upper",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_09_TV_Upper_Screen",
+   "asset": "TV65_Screen_Upper"
+  },
+  {
+   "obj": "ST_10_Desk",
+   "asset": "StationDesk_Lo"
+  },
+  {
+   "obj": "ST_10_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_10_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_10_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_10_TV_Lower",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_10_TV_Lower_Feet",
+   "asset": "TVFeet_Lo"
+  },
+  {
+   "obj": "ST_10_TV_Lower_Screen",
+   "asset": "TV65_Screen_Lower"
+  },
+  {
+   "obj": "ST_10_TV_Stand",
+   "asset": "TVStand"
+  },
+  {
+   "obj": "ST_10_TV_Upper",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_10_TV_Upper_Screen",
+   "asset": "TV65_Screen_Upper"
+  },
+  {
+   "obj": "ST_11_Desk",
+   "asset": "StationDesk_Hi"
+  },
+  {
+   "obj": "ST_11_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_11_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_11_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_11_TV_Lower",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_11_TV_Lower_Feet",
+   "asset": "TVFeet_Hi"
+  },
+  {
+   "obj": "ST_11_TV_Lower_Screen",
+   "asset": "TV65_Screen_Lower"
+  },
+  {
+   "obj": "ST_11_TV_Stand",
+   "asset": "TVStand"
+  },
+  {
+   "obj": "ST_11_TV_Upper",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_11_TV_Upper_Screen",
+   "asset": "TV65_Screen_Upper"
+  },
+  {
+   "obj": "ST_12_Desk",
+   "asset": "StationDesk_Lo"
+  },
+  {
+   "obj": "ST_12_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_12_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_12_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_12_TV_Lower",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_12_TV_Lower_Feet",
+   "asset": "TVFeet_Lo"
+  },
+  {
+   "obj": "ST_12_TV_Lower_Screen",
+   "asset": "TV65_Screen_Lower"
+  },
+  {
+   "obj": "ST_12_TV_Stand",
+   "asset": "TVStand"
+  },
+  {
+   "obj": "ST_12_TV_Upper",
+   "asset": "TV65"
+  },
+  {
+   "obj": "ST_12_TV_Upper_Screen",
+   "asset": "TV65_Screen_Upper"
+  },
+  {
+   "obj": "ST_CTR_Desk",
+   "asset": "StationDesk_CTR"
+  },
+  {
+   "obj": "ST_CTR_Keyboard",
+   "asset": "Keyboard"
+  },
+  {
+   "obj": "ST_CTR_MiniPC",
+   "asset": "MiniPC"
+  },
+  {
+   "obj": "ST_CTR_Monitor_L",
+   "asset": "Monitor43"
+  },
+  {
+   "obj": "ST_CTR_Monitor_L_Screen",
+   "asset": "Mon43_Screen_Over"
+  },
+  {
+   "obj": "ST_CTR_Monitor_R",
+   "asset": "Monitor43"
+  },
+  {
+   "obj": "ST_CTR_Monitor_R_Screen",
+   "asset": "Mon43_Screen_Alarm"
+  },
+  {
+   "obj": "ST_CTR_Mouse",
+   "asset": "Mouse"
+  },
+  {
+   "obj": "ST_CTR_TV_Stand",
+   "asset": "TVStand_CTR"
+  },
+  {
+   "obj": "ST_CTR_TV_Upper",
+   "asset": "TV86"
+  },
+  {
+   "obj": "ST_CTR_TV_Upper_Screen",
+   "asset": "TV86_Screen_Clock"
+  }
+ ]
+}

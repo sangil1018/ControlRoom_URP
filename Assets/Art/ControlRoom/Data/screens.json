@@ -1,0 +1,355 @@
+{
+ "items": [
+  {
+   "name": "ST_06_TV_Upper_Screen",
+   "group": 1,
+   "tier": "Front",
+   "frames": 24,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Upper"
+  },
+  {
+   "name": "ST_07_TV_Upper_Screen",
+   "group": 1,
+   "tier": "Front",
+   "frames": 24,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Upper"
+  },
+  {
+   "name": "ST_06_TV_Lower_Screen",
+   "group": 2,
+   "tier": "Front",
+   "frames": 24,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Lower"
+  },
+  {
+   "name": "ST_07_TV_Lower_Screen",
+   "group": 2,
+   "tier": "Front",
+   "frames": 24,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Lower"
+  },
+  {
+   "name": "ST_CTR_TV_Upper_Screen",
+   "group": 3,
+   "tier": "Front",
+   "frames": 24,
+   "width": 1.8851,
+   "height": 1.0604,
+   "material": "MAT_Screen_Clock"
+  },
+  {
+   "name": "OP_CENTER_Monitor_L_Screen",
+   "group": 4,
+   "tier": "Front",
+   "frames": 24,
+   "width": 0.598,
+   "height": 0.3364,
+   "material": "MAT_Screen_Op_Proc"
+  },
+  {
+   "name": "OP_CENTER_Monitor_C_Screen",
+   "group": 5,
+   "tier": "Front",
+   "frames": 24,
+   "width": 0.598,
+   "height": 0.3364,
+   "material": "MAT_Screen_Op_Over"
+  },
+  {
+   "name": "ST_CTR_Monitor_L_Screen",
+   "group": 5,
+   "tier": "Front",
+   "frames": 24,
+   "width": 0.9389,
+   "height": 0.5281,
+   "material": "MAT_Screen_Op_Over"
+  },
+  {
+   "name": "OP_CENTER_Monitor_R_Screen",
+   "group": 6,
+   "tier": "Front",
+   "frames": 24,
+   "width": 0.598,
+   "height": 0.3364,
+   "material": "MAT_Screen_Op_Alarm"
+  },
+  {
+   "name": "ST_CTR_Monitor_R_Screen",
+   "group": 6,
+   "tier": "Front",
+   "frames": 24,
+   "width": 0.9389,
+   "height": 0.5281,
+   "material": "MAT_Screen_Op_Alarm"
+  },
+  {
+   "name": "ST_02_TV_Upper_Screen",
+   "group": 7,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Upper"
+  },
+  {
+   "name": "ST_03_TV_Upper_Screen",
+   "group": 7,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Upper"
+  },
+  {
+   "name": "ST_04_TV_Upper_Screen",
+   "group": 7,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Upper"
+  },
+  {
+   "name": "ST_05_TV_Upper_Screen",
+   "group": 7,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Upper"
+  },
+  {
+   "name": "ST_08_TV_Upper_Screen",
+   "group": 7,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Upper"
+  },
+  {
+   "name": "ST_09_TV_Upper_Screen",
+   "group": 7,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Upper"
+  },
+  {
+   "name": "ST_10_TV_Upper_Screen",
+   "group": 7,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Upper"
+  },
+  {
+   "name": "ST_11_TV_Upper_Screen",
+   "group": 7,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Upper"
+  },
+  {
+   "name": "ST_02_TV_Lower_Screen",
+   "group": 8,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Lower"
+  },
+  {
+   "name": "ST_03_TV_Lower_Screen",
+   "group": 8,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Lower"
+  },
+  {
+   "name": "ST_04_TV_Lower_Screen",
+   "group": 8,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Lower"
+  },
+  {
+   "name": "ST_05_TV_Lower_Screen",
+   "group": 8,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Lower"
+  },
+  {
+   "name": "ST_08_TV_Lower_Screen",
+   "group": 8,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Lower"
+  },
+  {
+   "name": "ST_09_TV_Lower_Screen",
+   "group": 8,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Lower"
+  },
+  {
+   "name": "ST_10_TV_Lower_Screen",
+   "group": 8,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Lower"
+  },
+  {
+   "name": "ST_11_TV_Lower_Screen",
+   "group": 8,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Lower"
+  },
+  {
+   "name": "OP_1_Monitor_L_Screen",
+   "group": 9,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 0.598,
+   "height": 0.3364,
+   "material": "MAT_Screen_Op_Proc"
+  },
+  {
+   "name": "OP_2_Monitor_L_Screen",
+   "group": 9,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 0.598,
+   "height": 0.3364,
+   "material": "MAT_Screen_Op_Proc"
+  },
+  {
+   "name": "OP_3_Monitor_L_Screen",
+   "group": 9,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 0.598,
+   "height": 0.3364,
+   "material": "MAT_Screen_Op_Proc"
+  },
+  {
+   "name": "OP_1_Monitor_C_Screen",
+   "group": 10,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 0.598,
+   "height": 0.3364,
+   "material": "MAT_Screen_Op_Over"
+  },
+  {
+   "name": "OP_2_Monitor_C_Screen",
+   "group": 10,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 0.598,
+   "height": 0.3364,
+   "material": "MAT_Screen_Op_Over"
+  },
+  {
+   "name": "OP_3_Monitor_C_Screen",
+   "group": 10,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 0.598,
+   "height": 0.3364,
+   "material": "MAT_Screen_Op_Over"
+  },
+  {
+   "name": "OP_1_Monitor_R_Screen",
+   "group": 11,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 0.598,
+   "height": 0.3364,
+   "material": "MAT_Screen_Op_Alarm"
+  },
+  {
+   "name": "OP_2_Monitor_R_Screen",
+   "group": 11,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 0.598,
+   "height": 0.3364,
+   "material": "MAT_Screen_Op_Alarm"
+  },
+  {
+   "name": "OP_3_Monitor_R_Screen",
+   "group": 11,
+   "tier": "Mid",
+   "frames": 8,
+   "width": 0.598,
+   "height": 0.3364,
+   "material": "MAT_Screen_Op_Alarm"
+  },
+  {
+   "name": "ST_01_TV_Upper_Screen",
+   "group": 12,
+   "tier": "Edge",
+   "frames": 2,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Upper"
+  },
+  {
+   "name": "ST_12_TV_Upper_Screen",
+   "group": 12,
+   "tier": "Edge",
+   "frames": 2,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Upper"
+  },
+  {
+   "name": "ST_01_TV_Lower_Screen",
+   "group": 13,
+   "tier": "Edge",
+   "frames": 2,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Lower"
+  },
+  {
+   "name": "ST_12_TV_Lower_Screen",
+   "group": 13,
+   "tier": "Edge",
+   "frames": 2,
+   "width": 1.404,
+   "height": 0.7898,
+   "material": "MAT_Screen_HMI_Lower"
+  }
+ ]
+}

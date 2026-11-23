@@ -1,0 +1,634 @@
+{
+ "items": [
+  {
+   "name": "MAT_Alu_Frame",
+   "baseColor": [
+    0.8650420429846947,
+    0.8543058250926958,
+    0.8209798401712459
+   ],
+   "metallic": 0.6,
+   "smoothness": 0.6,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Aluminium",
+   "baseColor": [
+    0.9063317593127924,
+    0.9063317593127924,
+    0.91627355257257
+   ],
+   "metallic": 1.0,
+   "smoothness": 0.68,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Appliance_White",
+   "baseColor": [
+    0.9546871607410429,
+    0.9546871607410429,
+    0.9499974492594959
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.78,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Brass_Satin",
+   "baseColor": [
+    0.896243869286423,
+    0.7977377471499069,
+    0.6180314265202079
+   ],
+   "metallic": 1.0,
+   "smoothness": 0.68,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Ceiling_Mineral",
+   "baseColor": [
+    0.9357410338002828,
+    0.9357410338002828,
+    0.9260748813048038
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.05,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "T_Ceiling_Mineral",
+   "tiling": 1.6666666666666667,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Chair_MeshNet_Dense",
+   "baseColor": [
+    0.15170371739116362,
+    0.15594885057831873,
+    0.16801828849098666
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.4,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "T_Chair_Mesh",
+   "tiling": 8.3,
+   "cutout": true,
+   "screen": false
+  },
+  {
+   "name": "MAT_Chrome",
+   "baseColor": [
+    0.9309245565038701,
+    0.9309245565038701,
+    0.9357410338002828
+   ],
+   "metallic": 1.0,
+   "smoothness": 0.92,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Fabric_Black",
+   "baseColor": [
+    0.09985282129194903,
+    0.09985282129194903,
+    0.11207493995948536
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.08,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Floor_AccessTile",
+   "baseColor": [
+    0.5468542726376465,
+    0.5271127874042686,
+    0.49560966040713256
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "T_Floor_AccessTile",
+   "tiling": 1.6666666666666667,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_LCD_Small",
+   "baseColor": [
+    0.5838315006372918,
+    0.7353569830524495,
+    0.626209676390788
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.8,
+   "hasEmission": true,
+   "emission": [
+    0.7673756654827062,
+    0.9309245565038701,
+    0.7977377471499069
+   ],
+   "emissionIntensity": 1.2,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_LED_Diffuser",
+   "baseColor": [
+    0.9776915566891456,
+    0.9776915566891456,
+    0.9776915566891456
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "hasEmission": true,
+   "emission": [
+    0.9999999999999999,
+    0.9866952589813923,
+    0.9639762404456368
+   ],
+   "emissionIntensity": 4.0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_LED_Indicator_Blue",
+   "baseColor": [
+    0.34919021513783693,
+    0.5838315006372918,
+    0.9999999999999999
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "hasEmission": true,
+   "emission": [
+    0.48452920783154513,
+    0.701410709184914,
+    0.9999999999999999
+   ],
+   "emissionIntensity": 6.0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_LED_Indicator_White",
+   "baseColor": [
+    0.9999999999999999,
+    0.9999999999999999,
+    0.9999999999999999
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "hasEmission": true,
+   "emission": [
+    0.9999999999999999,
+    0.9999999999999999,
+    0.9999999999999999
+   ],
+   "emissionIntensity": 4.0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Metal_Black_Paint",
+   "baseColor": [
+    0.14282567775472238,
+    0.14282567775472238,
+    0.15170371739116362
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.58,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Paint_Ivory",
+   "baseColor": [
+    0.9063317593127924,
+    0.8860039666877558,
+    0.8209798401712459
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Paint_Navy_Door",
+   "baseColor": [
+    0.20598415771281758,
+    0.271699755848437,
+    0.3655646289803085
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Paint_Navy_Wall",
+   "baseColor": [
+    0.20598415771281758,
+    0.271699755848437,
+    0.3655646289803085
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Plastic_Black_Matte",
+   "baseColor": [
+    0.11774103874999695,
+    0.11774103874999695,
+    0.12835403856590433
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.45,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Plastic_Black_Satin",
+   "baseColor": [
+    0.09985282129194903,
+    0.09985282129194903,
+    0.11207493995948536
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.72,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_PowderCoat_White",
+   "baseColor": [
+    0.9260748813048038,
+    0.9260748813048038,
+    0.91627355257257
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.58,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Purifier_Perforated",
+   "baseColor": [
+    0.9546871607410429,
+    0.9546871607410429,
+    0.9546871607410429
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.65,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Rubber_Black",
+   "baseColor": [
+    0.15170371739116362,
+    0.15170371739116362,
+    0.15594885057831873
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.15,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Screen_Clock",
+   "baseColor": [
+    1,
+    1,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.78,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "SCR_Clock",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": true
+  },
+  {
+   "name": "MAT_Screen_HMI_Lower",
+   "baseColor": [
+    1,
+    1,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.78,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "SCR_HMI_Lower",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": true
+  },
+  {
+   "name": "MAT_Screen_HMI_Upper",
+   "baseColor": [
+    1,
+    1,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.78,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "SCR_HMI_Upper",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": true
+  },
+  {
+   "name": "MAT_Screen_Op_Alarm",
+   "baseColor": [
+    1,
+    1,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.78,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "SCR_Op_Alarms",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": true
+  },
+  {
+   "name": "MAT_Screen_Op_Over",
+   "baseColor": [
+    1,
+    1,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.78,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "SCR_Op_Overview",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": true
+  },
+  {
+   "name": "MAT_Screen_Op_Proc",
+   "baseColor": [
+    1,
+    1,
+    1
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.78,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "SCR_Op_Procedures",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": true
+  },
+  {
+   "name": "MAT_Steel_Brushed",
+   "baseColor": [
+    0.8650420429846947,
+    0.8650420429846947,
+    0.8703449433985444
+   ],
+   "metallic": 1.0,
+   "smoothness": 0.5,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  },
+  {
+   "name": "MAT_Wood_LightOak",
+   "baseColor": [
+    0.7977377471499069,
+    0.7152408833190245,
+    0.601243396864941
+   ],
+   "metallic": 0.0,
+   "smoothness": 0.5,
+   "hasEmission": false,
+   "emission": [
+    0,
+    0,
+    0
+   ],
+   "emissionIntensity": 0,
+   "texture": "T_Wood_LightOak",
+   "tiling": 1.0,
+   "cutout": false,
+   "screen": false
+  }
+ ]
+}
