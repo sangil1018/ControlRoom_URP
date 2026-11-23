@@ -28,8 +28,12 @@ public class ArmSwinger_Hand : MonoBehaviour
 	[Tooltip("General - Auto Adjust Fixed Timestep\n\nIn order for ArmSwinger to handle movement and wall collisions correctly, Time.fixedDeltaTime must be 0.0111 (90 per second) or less.  If this feature is enabled, the setting will be adjusted automatically if it is higher than 0.0111.  If disabled, an error will be generated but the value will not be changed.\n\n(Default: true)")]
 	public bool generalAutoAdjustFixedTimestep = true;
 
-	// Arm Swing Settings
-	[Header("Arm Swing Settings")]
+    [Header("Collision Setttings")]
+    [SerializeField]
+    private CharacterController characterController = null;
+
+    // Arm Swing Settings
+    [Header("Arm Swing Settings")]
 	[Tooltip("Arm Swing - Navigation\n\nEnables variable locomotion using the controllers to determine speed and direction.  Activated according to the selected Mode. \n\n(Default: true)")]
 	public bool armSwingNavigation = true;
 	[SerializeField]
@@ -386,7 +390,32 @@ public class ArmSwinger_Hand : MonoBehaviour
 			!armSwingingPaused &&
 			!rewindInProgress)
 		{
-			transform.position += variableArmSwingMotion();
+			if (characterController != null && characterController.enabled)
+			{
+                var horizontalDisplacement = variableArmSwingMotion();
+				 
+                float gravity = -9.81f;
+                float verticalVelocity = 0f;
+
+                // 바닥에 닿아 있으면 수직 속도를 약한 음수로 유지해 경사면에서도 안정적으로 접지
+                if (characterController.isGrounded && verticalVelocity < 0f)
+                {
+                    verticalVelocity = -2f;
+                }
+
+                // 중력 가속도 누적 (FixedUpdate이므로 Time.fixedDeltaTime 사용)
+                verticalVelocity += gravity * Time.fixedDeltaTime;
+
+                // 수직 이동 변위 계산
+                Vector3 verticalDisplacement = new Vector3(0f, verticalVelocity * Time.fixedDeltaTime, 0f);
+
+                // 수평 변위 + 수직(중력) 변위를 합쳐 한 번에 이동
+                characterController.Move(horizontalDisplacement + verticalDisplacement);
+            }
+			else
+			{
+                transform.position += variableArmSwingMotion();
+            }
 		}
 
 		// Save the current controller positions for next frame
@@ -508,75 +537,76 @@ public class ArmSwinger_Hand : MonoBehaviour
 	}
 
 	Vector3 headsetAngle;
+
+	// TODO : 스윙시에 스무스 이동 개선 
 	// Arm Swing when armSwingMode is BothButtonsBothControllers
 	bool swingBothButtonsBothControllers(ref float movement, ref Quaternion rotation)
 	{
 		Vector3 leftMoveVector = leftControllerLocalPosition - leftControllerPreviousLocalPosition;
 		Vector3 rightMoveVector = rightControllerLocalPosition - rightControllerPreviousLocalPosition;
 
-		// Find the change in controller position since last Update()
-		//float leftControllerChange = Vector3.Distance(leftControllerPreviousLocalPosition, leftControllerLocalPosition);
-		//float rightControllerChange = Vector3.Distance(rightControllerPreviousLocalPosition, rightControllerLocalPosition);
-
-		// Store controller button states
 		getControllerButtons(leftMoveVector, rightMoveVector);
 
 		if (_WalkOn)
 		{
+			// 양손 모두 유효하게 움직이면 이동 계산
 			if (leftButtonPressed && rightButtonPressed)
 			{
-				//if (leftControllerChange > 0.01f && rightControllerChange > 0.01f)
+				// 시선 방향 수평 회전 계산 (부드러운 방향 전환을 위해 Slerp 적용 가능)
+				Vector3 forward = headsetGameObject.transform.forward;
+				forward.y = 0f;
+				if (forward.sqrMagnitude > 0.001f)
 				{
-					// The rotation is the average of the two controllers
-					//rotation = determineAverageControllerRotation();
-					rotation = Quaternion.LookRotation(headsetGameObject.transform.forward);
-					headsetAngle = rotation.eulerAngles;
-					headsetAngle.x = headsetAngle.z = 0;
-					rotation = Quaternion.Euler(headsetAngle);
-
-					float leftMovement = calculateMovement(armSwingControllerToMovementCurve, leftChange, armSwingControllerSpeedForMaxSpeed, armSwingMaxSpeed);
-					float rightMovement = calculateMovement(armSwingControllerToMovementCurve, rightChange, armSwingControllerSpeedForMaxSpeed, armSwingMaxSpeed);
-
-					// Calculate what camera rig movement the change should be converted to
-					//float leftMovement = calculateMovement(armSwingControllerToMovementCurve, leftMoveVector.magnitude, armSwingControllerSpeedForMaxSpeed, armSwingMaxSpeed);
-					//float rightMovement = calculateMovement(armSwingControllerToMovementCurve, rightMoveVector.magnitude, armSwingControllerSpeedForMaxSpeed, armSwingMaxSpeed);
-
-					// Controller movement is the average of the two controllers' change times the both controllers coefficient
-					float controllerMovement = (leftMovement + rightMovement) / 2 * armSwingBothControllersCoefficient;
-
-					// If movingInertia is enabled, the higher of inertia or controller movement is used
-					if (movingInertia)
-					{
-						movement = movingInertiaOrControllerMovement(controllerMovement);
-					}
-					else
-					{
-						movement = controllerMovement;
-					}
-					return true;
+					Quaternion targetRot = Quaternion.LookRotation(forward.normalized);
+					rotation = latestArtificialRotation == Quaternion.identity
+						? targetRot
+						: Quaternion.Slerp(latestArtificialRotation, targetRot, Time.fixedDeltaTime * 10f);
 				}
-			}
-			// If stopping inertia is enabled
-			else if (stoppingInertia && latestArtificialMovement != 0)
-			{
-				// The rotation is the cached one
-				rotation = latestArtificialRotation;
-				// The stopping movement is calculated using a curve, the latest movement, last frame's deltaTime, max speed, and the stop time for max speed
-				movement = inertiaMovementChange(stoppingInertiaCurve, latestArtificialMovement, previousTimeDeltaTime, armSwingMaxSpeed, stoppingInertiaTimeToStopAtMaxSpeed);
 
+				float leftMovement = calculateMovement(armSwingControllerToMovementCurve, leftChange, armSwingControllerSpeedForMaxSpeed, armSwingMaxSpeed);
+				float rightMovement = calculateMovement(armSwingControllerToMovementCurve, rightChange, armSwingControllerSpeedForMaxSpeed, armSwingMaxSpeed);
+
+				float controllerMovement = 0f;
+
+				// 양손 모두 교차하며 흔들 때 vs 한 손만 유효하게 움직일 때
+				if (leftChange > 0f && rightChange > 0f)
+				{
+					controllerMovement = ((leftMovement + rightMovement) / 2f) * armSwingBothControllersCoefficient;
+				}
+				else
+				{
+					controllerMovement = (leftMovement + rightMovement) * armSwingSingleControllerCoefficient;
+				}
+
+				// 기존 코드에서 누락되었던 스무딩(지터링 방지) 직접 적용
+				if (controllerSmoothing)
+				{
+					saveFloatToLinkedList(controllerMovementResultHistory, controllerMovement, controllerSmoothingCacheSize);
+					controllerMovement = smoothedControllerMovement(controllerMovementResultHistory);
+				}
+
+				if (movingInertia)
+				{
+					movement = movingInertiaOrControllerMovement(controllerMovement);
+				}
+				else
+				{
+					movement = controllerMovement;
+				}
+				return true;
+			}
+			else if (stoppingInertia && latestArtificialMovement > 0.0001f)
+			{
+				rotation = latestArtificialRotation;
+				movement = inertiaMovementChange(stoppingInertiaCurve, latestArtificialMovement, previousTimeDeltaTime, armSwingMaxSpeed, stoppingInertiaTimeToStopAtMaxSpeed);
 				return true;
 			}
 			return false;
 		}
-		// If stopping inertia is enabled
-		else if (stoppingInertia && latestArtificialMovement != 0)
+		else if (stoppingInertia && latestArtificialMovement > 0.0001f)
 		{
-
-			// The rotation is the cached one
 			rotation = latestArtificialRotation;
-			// The stopping movement is calculated using a curve, the latest movement, last frame's deltaTime, max speed, and the stop time for max speed
 			movement = inertiaMovementChange(stoppingInertiaCurve, latestArtificialMovement, previousTimeDeltaTime, armSwingMaxSpeed, stoppingInertiaTimeToStopAtMaxSpeed);
-
 			return true;
 		}
 		else
@@ -585,7 +615,86 @@ public class ArmSwinger_Hand : MonoBehaviour
 		}
 	}
 
-	float movingInertiaOrControllerMovement(float movement)
+    // TODO : 레거시 코드 백업
+    #region swingBothButtonsBothControllers 레거시 코드 백업
+    //bool swingBothButtonsBothControllers(ref float movement, ref Quaternion rotation)
+    //{
+    //	Vector3 leftMoveVector = leftControllerLocalPosition - leftControllerPreviousLocalPosition;
+    //	Vector3 rightMoveVector = rightControllerLocalPosition - rightControllerPreviousLocalPosition;
+
+    //	// Find the change in controller position since last Update()
+    //	//float leftControllerChange = Vector3.Distance(leftControllerPreviousLocalPosition, leftControllerLocalPosition);
+    //	//float rightControllerChange = Vector3.Distance(rightControllerPreviousLocalPosition, rightControllerLocalPosition);
+
+    //	// Store controller button states
+    //	getControllerButtons(leftMoveVector, rightMoveVector);
+
+    //	if (_WalkOn)
+    //	{
+    //		if (leftButtonPressed && rightButtonPressed)
+    //		{
+    //			//if (leftControllerChange > 0.01f && rightControllerChange > 0.01f)
+    //			{
+    //				// The rotation is the average of the two controllers
+    //				//rotation = determineAverageControllerRotation();
+    //				rotation = Quaternion.LookRotation(headsetGameObject.transform.forward);
+    //				headsetAngle = rotation.eulerAngles;
+    //				headsetAngle.x = headsetAngle.z = 0;
+    //				rotation = Quaternion.Euler(headsetAngle);
+
+    //				float leftMovement = calculateMovement(armSwingControllerToMovementCurve, leftChange, armSwingControllerSpeedForMaxSpeed, armSwingMaxSpeed);
+    //				float rightMovement = calculateMovement(armSwingControllerToMovementCurve, rightChange, armSwingControllerSpeedForMaxSpeed, armSwingMaxSpeed);
+
+    //				// Calculate what camera rig movement the change should be converted to
+    //				//float leftMovement = calculateMovement(armSwingControllerToMovementCurve, leftMoveVector.magnitude, armSwingControllerSpeedForMaxSpeed, armSwingMaxSpeed);
+    //				//float rightMovement = calculateMovement(armSwingControllerToMovementCurve, rightMoveVector.magnitude, armSwingControllerSpeedForMaxSpeed, armSwingMaxSpeed);
+
+    //				// Controller movement is the average of the two controllers' change times the both controllers coefficient
+    //				float controllerMovement = (leftMovement + rightMovement) / 2 * armSwingBothControllersCoefficient;
+
+    //				// If movingInertia is enabled, the higher of inertia or controller movement is used
+    //				if (movingInertia)
+    //				{
+    //					movement = movingInertiaOrControllerMovement(controllerMovement);
+    //				}
+    //				else
+    //				{
+    //					movement = controllerMovement;
+    //				}
+    //				return true;
+    //			}
+    //		}
+    //		// If stopping inertia is enabled
+    //		else if (stoppingInertia && latestArtificialMovement != 0)
+    //		{
+    //			// The rotation is the cached one
+    //			rotation = latestArtificialRotation;
+    //			// The stopping movement is calculated using a curve, the latest movement, last frame's deltaTime, max speed, and the stop time for max speed
+    //			movement = inertiaMovementChange(stoppingInertiaCurve, latestArtificialMovement, previousTimeDeltaTime, armSwingMaxSpeed, stoppingInertiaTimeToStopAtMaxSpeed);
+
+    //			return true;
+    //		}
+    //		return false;
+    //	}
+    //	// If stopping inertia is enabled
+    //	else if (stoppingInertia && latestArtificialMovement != 0)
+    //	{
+
+    //		// The rotation is the cached one
+    //		rotation = latestArtificialRotation;
+    //		// The stopping movement is calculated using a curve, the latest movement, last frame's deltaTime, max speed, and the stop time for max speed
+    //		movement = inertiaMovementChange(stoppingInertiaCurve, latestArtificialMovement, previousTimeDeltaTime, armSwingMaxSpeed, stoppingInertiaTimeToStopAtMaxSpeed);
+
+    //		return true;
+    //	}
+    //	else
+    //	{
+    //		return false;
+    //	}
+    //}
+    #endregion
+
+    float movingInertiaOrControllerMovement(float movement)
 	{
 
 		if (controllerSmoothing)
@@ -1365,18 +1474,74 @@ public class ArmSwinger_Hand : MonoBehaviour
 	float leftChange;
 	float rightChange;
 
+	//void getControllerButtons(Vector3 leftMoveVec, Vector3 rightMoveVec)
+	//{
+	//	leftChange = leftMoveVec.magnitude;
+	//	rightChange = rightMoveVec.magnitude;
+
+	//	leftButtonPressed = true;
+	//	rightButtonPressed = true;
+
+	//	// 미세한 손떨림(데드존) 필터링
+	//	bool leftValid = leftMoveVec.sqrMagnitude > _OKMoveDistance;
+	//	bool rightValid = rightMoveVec.sqrMagnitude > _OKMoveDistance;
+
+	//	if (!leftValid) leftChange = 0f;
+	//	if (!rightValid) rightChange = 0f;
+
+	//	// 두 손 모두 유효하게 움직이지 않을 때만 정지 처리
+	//	if (!leftValid && !rightValid)
+	//	{
+	//		leftButtonPressed = false;
+	//		rightButtonPressed = false;
+	//	}
+	//	// 양손이 같은 방향으로 움직일 때는 한 손만 흔드는 것으로 간주해 감속만 적용 (0으로 뚝 끊지 않음)
+	//	else if (leftValid && rightValid && Vector3.Dot(leftMoveVec, rightMoveVec) >= 0)
+	//	{
+	//		// 더 크게 움직이는 손의 입력만 반영하여 자연스럽게 연결
+	//		if (leftChange >= rightChange)
+	//			rightChange = 0f;
+	//		else
+	//			leftChange = 0f;
+	//	}
+
+	//	if (armswingFocusMode == false)
+	//	{
+	//		_WalkOn = true;
+	//		_NowFocusTime = _FocusWalkingTime;
+	//	}
+	//	else
+	//	{
+	//		if (leftButtonPressed || rightButtonPressed) // && 에서 || 로 완화
+	//		{
+	//			if (_NowFocusTime <= 0)
+	//				_WalkOn = true;
+	//			else
+	//			{
+	//				_NowFocusTime -= Time.fixedDeltaTime;
+	//				_WalkOn = false;
+	//			}
+	//		}
+	//		else
+	//		{
+	//			_NowFocusTime = _FocusWalkingTime;
+	//			_WalkOn = false;
+	//		}
+	//	}
+	//}
+
 	// Sets the button variables each frame
 	void getControllerButtons(Vector3 leftMoveVec, Vector3 rightMoveVec)
 	{
 		leftChange = leftMoveVec.magnitude;
 		rightChange = rightMoveVec.magnitude;
 
-        //leftButtonPressed = LeftHandGrapState.isGrap;
-        //rightButtonPressed = RightHandGrapState.isGrap;
-        leftButtonPressed = true;
-        rightButtonPressed = true;
+		//leftButtonPressed = LeftHandGrapState.isGrap;
+		//rightButtonPressed = RightHandGrapState.isGrap;
+		leftButtonPressed = true;
+		rightButtonPressed = true;
 
-        if (leftButtonPressed && rightButtonPressed)
+		if (leftButtonPressed && rightButtonPressed)
 		{
 			if (leftChange == 0 || rightChange == 0)
 			{
