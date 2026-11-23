@@ -273,24 +273,24 @@ public static class ControlRoomQualityUpgrader
 
             int updated = 0;
 
-            // 1. 액세스 플로어 타일 (실사 웜 트래버틴 베이지 0.84/0.805/0.745 + 초평탄 유광 반사 대비)
+            // 1. 액세스 플로어 타일 (첨부 타겟 오픈 바닥 luma~156 일치용 0.64/0.63/0.61 + 유광 반사 유지)
             updated += applyLitPbr(
-                "MAT_Floor_AccessTile", litShader, new Color(0.84f, 0.805f, 0.745f, 1f), 0f, 0.98f,
+                "MAT_Floor_AccessTile", litShader, new Color(0.64f, 0.63f, 0.61f, 1f), 0f, 0.98f,
                 floorAlbedo, floorNormal, 0.025f, floorMask, floorAo, 0.40f,
                 new Vector2(0.8333333f, 0.8333333f),
                 tilingOffset: new Vector2(0.0f, -0.04f)
             );
 
-            // 2. 노르딕 라이트 오크 원목 데스크 (91점 달성 스윗스팟 유지 + 노출 0.12EV 보정 틴트)
+            // 2. 노르딕 라이트 오크 원목 데스크 (노출 +0.16 EV 보정하여 차분한 크림-오크 0.80/0.79/0.77 유지)
             updated += applyLitPbr(
-                "MAT_Wood_LightOak", litShader, new Color(0.95f, 0.945f, 0.93f, 1f), 0f, 1.0f,
+                "MAT_Wood_LightOak", litShader, new Color(0.80f, 0.79f, 0.77f, 1f), 0f, 1.0f,
                 woodAlbedo, woodNormal, 0.09f, woodMask, woodAo, 0.24f,
                 new Vector2(0.90f, 0.90f)
             );
 
-            // 3. 천장 흡음 텍스 (밝은 백색 유지 + 11.5 HDR LED 디퓨저와 선명히 구분되는 0.90 알베도)
+            // 3. 천장 흡음 텍스 (첨부 타겟 천장 luma~151 일치용 0.57/0.58/0.59)
             updated += applyLitPbr(
-                "MAT_Ceiling_Mineral", litShader, new Color(0.90f, 0.90f, 0.895f, 1f), 0.0f, 0.06f,
+                "MAT_Ceiling_Mineral", litShader, new Color(0.57f, 0.58f, 0.59f, 1f), 0.0f, 0.06f,
                 ceilingAlbedo, ceilingNormal, 0.20f, null, ceilingAo, 0.25f,
                 new Vector2(1.5f, 1.5f)
             );
@@ -334,13 +334,13 @@ public static class ControlRoomQualityUpgrader
             );
 
             updated += applyLitPbr(
-                "MAT_Paint_Navy_Wall", litShader, new Color(0.255f, 0.315f, 0.395f, 1f), 0.0f, 0.22f,
+                "MAT_Paint_Navy_Wall", litShader, new Color(0.175f, 0.225f, 0.305f, 1f), 0.0f, 0.22f,
                 paintDetailAlbedo, paintNormal, 0.07f, null, null, 1.0f,
                 new Vector2(2.0f, 2.0f)
             );
 
             updated += applyLitPbr(
-                "MAT_Paint_Navy_Door", litShader, new Color(0.32f, 0.38f, 0.47f, 1f), 0.12f, 0.46f,
+                "MAT_Paint_Navy_Door", litShader, new Color(0.23f, 0.285f, 0.37f, 1f), 0.12f, 0.46f,
                 null, paintNormal, 0.04f, null, null, 1.0f,
                 new Vector2(2.0f, 2.0f)
             );
@@ -1034,11 +1034,11 @@ public static class ControlRoomQualityUpgrader
             ls.directionalityMode = LightmapsMode.CombinedDirectional;
             ls.mixedBakeMode = MixedLightingMode.IndirectOnly;
 
-            // 라이트맵 Baked A.O. 설정 (코너 과암화 억제 + 책상 다리/캐비닛 바닥 1~5cm 컨택트 섀도우 강화)
+            // 라이트맵 Baked A.O. 설정 (0.75m 데스크 상판과 0.48m 의자 좌판 하단 그림자 유지 + 자연스러운 반사 균형)
             ls.ao = true;
-            ls.aoMaxDistance = 0.42f;
-            ls.aoExponentIndirect = 1.38f;
-            ls.aoExponentDirect = 1.20f;
+            ls.aoMaxDistance = 0.95f;
+            ls.aoExponentIndirect = 1.75f;
+            ls.aoExponentDirect = 1.40f;
 
             ls.lightmapResolution = 36f;
             ls.lightmapMaxSize = 2048;
@@ -1052,14 +1052,14 @@ public static class ControlRoomQualityUpgrader
 
             EditorUtility.SetDirty(ls);
 
-            // AlbedoBoost와 IndirectOutputScale 균형 조정 (하이라이트 클리핑 방지 + 바닥/데스크 반사 대비 확보)
+            // 실내 벽·코너 간접광 자연 회복 및 바닥 그림자 대비 밸런스
             SerializedObject lsSo = new SerializedObject(ls);
-            setFloatProp(lsSo, "m_AlbedoBoost", 1.22f);
-            setFloatProp(lsSo, "m_IndirectOutputScale", 1.28f);
+            setFloatProp(lsSo, "m_AlbedoBoost", 1.18f);
+            setFloatProp(lsSo, "m_IndirectOutputScale", 1.22f);
             lsSo.ApplyModifiedPropertiesWithoutUndo();
 
             AssetDatabase.SaveAssets();
-            Debug.Log("[ControlRoomQuality] LightingSettings(Baked AO + 4 Bounces + AlbedoBoost 1.35) 업그레이드 완료");
+            Debug.Log("[ControlRoomQuality] LightingSettings(Baked AO 0.95m + AlbedoBoost 1.18 / Indirect 1.22) 업그레이드 완료");
         }
         catch (Exception ex)
         {
@@ -1107,7 +1107,8 @@ public static class ControlRoomQualityUpgrader
             }
             ensureVolumeComponentSubAsset(tone, profile);
             tone.active = true;
-            tone.mode.Override(TonemappingMode.ACES);
+            // ACES 암부 뭉개짐 없이 첨부 타겟(p10~64, mean~146)의 균일한 건축 실내 노출을 재현하는 Neutral 톤매핑
+            tone.mode.Override(TonemappingMode.Neutral);
 
             if (!profile.TryGet(out ColorAdjustments colorAdj))
             {
@@ -1115,9 +1116,9 @@ public static class ControlRoomQualityUpgrader
             }
             ensureVolumeComponentSubAsset(colorAdj, profile);
             colorAdj.active = true;
-            colorAdj.postExposure.Override(0.12f);
-            colorAdj.contrast.Override(5f);
-            colorAdj.saturation.Override(2f);
+            colorAdj.postExposure.Override(0.28f);
+            colorAdj.contrast.Override(0f);
+            colorAdj.saturation.Override(0f);
 
             if (!profile.TryGet(out WhiteBalance wb))
             {
@@ -1125,7 +1126,7 @@ public static class ControlRoomQualityUpgrader
             }
             ensureVolumeComponentSubAsset(wb, profile);
             wb.active = true;
-            wb.temperature.Override(0.5f);
+            wb.temperature.Override(-2.0f);
             wb.tint.Override(0f);
 
             if (!profile.TryGet(out Bloom bloom))
@@ -1135,8 +1136,8 @@ public static class ControlRoomQualityUpgrader
             ensureVolumeComponentSubAsset(bloom, profile);
             bloom.active = true;
             bloom.threshold.Override(1.65f);
-            bloom.intensity.Override(0.20f);
-            bloom.scatter.Override(0.50f);
+            bloom.intensity.Override(0.18f);
+            bloom.scatter.Override(0.48f);
             bloom.highQualityFiltering.Override(false);
             bloom.downscale.Override(BloomDownscaleMode.Quarter);
             bloom.maxIterations.Override(3);
@@ -1210,11 +1211,11 @@ public static class ControlRoomQualityUpgrader
             // 6. Box Projection + Blending 6개 Reflection Probe 배치
             List<ReflectionProbe> probes = setupReflectionProbes(rigParent);
 
-            // 7. Ambient 및 Post-Processing Global Volume + 카메라 postProcessing 활성화
+            // 7. Ambient 및 Post-Processing Global Volume + 카메라 postProcessing 활성화 (벽·코너 자연 채움 + 바닥 그림자 대비 유지 밸런스)
             RenderSettings.ambientMode = AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor = new Color(0.165f, 0.172f, 0.185f, 1f);
-            RenderSettings.ambientEquatorColor = new Color(0.145f, 0.150f, 0.162f, 1f);
-            RenderSettings.ambientGroundColor = new Color(0.105f, 0.098f, 0.088f, 1f);
+            RenderSettings.ambientSkyColor = new Color(0.115f, 0.120f, 0.130f, 1f);
+            RenderSettings.ambientEquatorColor = new Color(0.095f, 0.100f, 0.110f, 1f);
+            RenderSettings.ambientGroundColor = new Color(0.065f, 0.062f, 0.060f, 1f);
             RenderSettings.skybox = null;
 
             setupGlobalVolumeAndCameras(rigParent);
@@ -1294,8 +1295,20 @@ public static class ControlRoomQualityUpgrader
                     {
                         mr.receiveGI = ReceiveGI.Lightmaps;
                         mr.scaleInLightmap = n.Contains("Floor_Access") ? 2.0f : 1.0f;
+                        if (n.Contains("Floor_Access") || n.Contains("Floor_Niche"))
+                        {
+                            mr.receiveShadows = true;
+                            mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                        }
                         EditorUtility.SetDirty(mr);
                     }
+                }
+                else if (n.Contains("Desk") || n.Contains("Chair") || n.Contains("TVStand")
+                         || n.Contains("Rack_Cabinet") || n.Contains("Stand_AC"))
+                {
+                    // 가구·의자 등 주요 오브젝트가 라이트맵 베이크 시 확실히 그림자를 드리우도록 유지
+                    mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                    EditorUtility.SetDirty(mr);
                 }
             }
 
@@ -1365,7 +1378,7 @@ public static class ControlRoomQualityUpgrader
         try
         {
             int count = 0;
-            Color ledNeutralDaylight = new Color(0.985f, 0.985f, 0.995f, 1f); // 약 4850K 현장 전등 ALL ON 기준
+            Color ledNeutralDaylight = new Color(0.985f, 0.990f, 1.0f, 1f); // 첨부 이미지 기준 차분한 쿨-뉴트럴 조명
             foreach (Light li in UnityEngine.Object.FindObjectsOfType<Light>(true))
             {
                 if (li == null || !li.gameObject.name.StartsWith("LED_")
@@ -1374,15 +1387,15 @@ public static class ControlRoomQualityUpgrader
                 li.type = LightType.Rectangle;
                 li.lightmapBakeType = LightmapBakeType.Baked;
                 li.areaSize = new Vector2(1.18f, 0.13f);
-                li.intensity = 34f;
-                li.range = 12f;
+                li.intensity = 32f;
+                li.range = 11.0f;
                 li.shadows = LightShadows.Soft;
                 li.color = ledNeutralDaylight;
                 EditorUtility.SetDirty(li);
                 count++;
             }
 
-            // 입구 니치 천장 보조 면광원 (Wall_SS_Panel, Stand_AC, Air_Purifier, 출입문 상단 조도 보강)
+            // 입구 니치 천장 보조 면광원 (Wall_SS_Panel, Stand_AC, Air_Purifier, 출입문 상단 조도 균형)
             Transform existingNiche = lightsParent.Find("LED_Entry_Niche");
             if (existingNiche != null)
             {
@@ -1396,12 +1409,12 @@ public static class ControlRoomQualityUpgrader
             nicheLight.type = LightType.Rectangle;
             nicheLight.lightmapBakeType = LightmapBakeType.Baked;
             nicheLight.areaSize = new Vector2(0.95f, 0.30f);
-            nicheLight.intensity = 26f;
+            nicheLight.intensity = 24f;
             nicheLight.range = 7.0f;
             nicheLight.shadows = LightShadows.Soft;
             nicheLight.color = ledNeutralDaylight;
 
-            // 상향 천장 바운스 필 라이트 4개 (Baked 전용 -> 천장 과클리핑 없이 자연스러운 간접광 톤 유지)
+            // 상향 천장 바운스 필 라이트 4개 (Baked 전용 -> 천장 및 벽 상부 밝기 자연 보조)
             for (int b = 1; b <= 4; b++)
             {
                 Transform oldBounce = lightsParent.Find($"LED_CeilingBounce_{b}");
@@ -1417,7 +1430,7 @@ public static class ControlRoomQualityUpgrader
                 new Vector3(-3.5f, 1.85f, -7.0f),
                 new Vector3(-10.5f, 1.85f, -7.0f)
             };
-            Color bounceColor = new Color(0.98f, 0.985f, 1.0f, 1f);
+            Color bounceColor = new Color(0.985f, 0.99f, 1.0f, 1f);
             for (int i = 0; i < bouncePositions.Length; i++)
             {
                 GameObject bGo = new GameObject($"LED_CeilingBounce_{i + 1}");
@@ -1428,7 +1441,7 @@ public static class ControlRoomQualityUpgrader
                 bLight.type = LightType.Rectangle;
                 bLight.lightmapBakeType = LightmapBakeType.Baked;
                 bLight.areaSize = new Vector2(4.2f, 3.2f);
-                bLight.intensity = 1.6f;
+                bLight.intensity = 1.4f;
                 bLight.range = 5.0f;
                 bLight.shadows = LightShadows.Soft;
                 bLight.color = bounceColor;
@@ -1444,7 +1457,7 @@ public static class ControlRoomQualityUpgrader
     }
 
     /// <summary>
-    /// 천장/TV 원형 글레어를 만들지 않도록 하향 Spot Light 1개와 미세 상부 Directional Light 1개만 사용해 금속/원목/가전에 하이라이트를 부여합니다.
+    /// 바닥 베이크 그림자가 지워지지 않도록 무그림자 Spot(Highlight_Center_Console)을 제거하고, 극미세 상부 스페큘러 Directional(0.04)만 유지합니다.
     /// </summary>
     private static void setupRealtimeHighlightLights(Transform lightsParent)
     {
@@ -1458,7 +1471,7 @@ public static class ControlRoomQualityUpgrader
             hlRoot = new GameObject("RealtimeHighlights").transform;
             hlRoot.SetParent(lightsParent, false);
 
-            // 1. 상부 방향성 스페큘러 키라이트 (Mixed + Shadows None)
+            // 상부 방향성 미세 스페큘러 키라이트만 유지 (Intensity 0.04, Mixed + Shadows None -> 바닥 그림자 세척 방지)
             GameObject dirGo = new GameObject("Key_Overhead_Specular");
             dirGo.transform.SetParent(hlRoot, false);
             dirGo.transform.rotation = Quaternion.Euler(74f, -15f, 0f);
@@ -1466,23 +1479,8 @@ public static class ControlRoomQualityUpgrader
             dirLight.type = LightType.Directional;
             dirLight.lightmapBakeType = LightmapBakeType.Mixed;
             dirLight.shadows = LightShadows.None;
-            dirLight.intensity = 0.22f;
-            dirLight.color = new Color(1.0f, 0.975f, 0.94f, 1f);
-
-            // 2. 중앙 오퍼레이터 콘솔 영역 하향 스팟 라이트 (Mixed + Shadows None)
-            GameObject centerGo = new GameObject("Highlight_Center_Console");
-            centerGo.transform.SetParent(hlRoot, false);
-            centerGo.transform.position = new Vector3(-7.0f, 2.55f, -4.4f);
-            centerGo.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
-            Light centerLight = centerGo.AddComponent<Light>();
-            centerLight.type = LightType.Spot;
-            centerLight.lightmapBakeType = LightmapBakeType.Mixed;
-            centerLight.shadows = LightShadows.None;
-            centerLight.spotAngle = 115f;
-            centerLight.innerSpotAngle = 55f;
-            centerLight.range = 5.5f;
-            centerLight.intensity = 0.55f;
-            centerLight.color = new Color(1.0f, 0.975f, 0.935f, 1f);
+            dirLight.intensity = 0.04f;
+            dirLight.color = new Color(0.985f, 0.99f, 1.0f, 1f);
         }
         catch (Exception ex)
         {
@@ -2168,6 +2166,14 @@ public static class ControlRoomQualityUpgrader
                     new Vector3(-7.00f, 1.65f, -4.60f),
                     new Vector3(-7.00f, 2.25f, -9.50f),
                     64f,
+                    tempCams
+                ));
+                // 사용자 첨부 이미지와 동일한 입구 우측 대각선 전경 대조용 임시 카메라
+                camsToCapture.Add(createTempCloseupCamera(
+                    "CAM_Ref_TargetAngle",
+                    new Vector3(-12.60f, 1.85f, -1.10f),
+                    new Vector3(-4.80f, 1.05f, -7.20f),
+                    58f,
                     tempCams
                 ));
             }
