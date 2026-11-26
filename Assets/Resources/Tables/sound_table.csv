@@ -1,0 +1,7 @@
+﻿index,soundType,isLoop,isOneshot,pitch,audioPath
+1,BGM,True,False,1,sounds/BGM/bgm_server_room_noise.mp3
+10,SFX,False,True,1,sounds/SFX/UI/ButtonClick.wav
+11,SFX,False,True,1,sounds/SFX/UI/Clear.mp3
+12,SFX,False,True,1,sounds/SFX/UI/DialogPopup.wav
+13,SFX,False,True,1,sounds/SFX/UI/Interact.wav
+100,SFX,False,True,1,sounds/SFX/01_mouse_click.mp3

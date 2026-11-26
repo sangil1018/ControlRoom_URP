@@ -49,7 +49,7 @@ public abstract class PhaseProcessor : MonoBehaviour
     /// <summary>
     /// 페이즈 이벤트 호출
     /// </summary>
-    protected async UniTask<PhaseEventTrigger> StartPhaseEventAsync(int eventIndex, int narration, CancellationToken cancellationToken = default, UnityAction callback = null)
+    protected async UniTask<PhaseEventTrigger> StartPhaseEventAsync(int eventIndex, int narration, int triggerSound = 0, CancellationToken cancellationToken = default, UnityAction callback = null)
     {
         DLogger.TLog($"[{eventIndex}]번 페이즈 이벤트 트리거 호출...");
 
@@ -76,6 +76,10 @@ public abstract class PhaseProcessor : MonoBehaviour
 
         await UniTask.WaitUntil(() => hasTriggered,
             cancellationToken: cancellationToken);
+
+        // 이벤트 클리어음 출력
+        if (SoundManager.Instance != null && triggerSound > 0)
+            SoundManager.Instance.PlaySound(triggerSound);
 
         DLogger.TLog($"[{eventIndex}]번 페이즈 이벤트 트리거 종료...");
 

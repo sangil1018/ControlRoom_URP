@@ -1,0 +1,23 @@
+{
+    "name": "ControlRoomUI.Editor",
+    "rootNamespace": "ControlRoom.UI.Editor",
+    "references": [
+        "ControlRoomUI.Runtime",
+        "Unity.TextMeshPro",
+        "Unity.TextMeshPro.Editor",
+        "Unity.XR.Interaction.Toolkit",
+        "Unity.InputSystem",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

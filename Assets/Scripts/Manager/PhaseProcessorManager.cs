@@ -43,14 +43,6 @@ public class PhaseProcessorManager : MonoBehaviour
             mPhaseProcessors.ForEach(x => x.Deinitialized());
     }
 
-    //private void Update()
-    //{ 
-    //    if (Keyboard.current != null && Keyboard.current.spaceKey.wasReleasedThisFrame)
-    //    { 
-    //        StartPhaseProcess().Forget();
-    //    }
-    //}
-
     public async UniTaskVoid StartPhaseProcess()
     {
         foreach (PhaseProcessor processor in mPhaseProcessors)
